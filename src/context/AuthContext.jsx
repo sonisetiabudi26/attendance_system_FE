@@ -1,6 +1,6 @@
 import { createContext, useCallback, useEffect, useState } from 'react'
-import { authApi } from '../api/authApi'
-import { db } from '../api/mockDb'
+import { authApi } from "@/features/auth/api/authApi"
+import { db } from "@/shared/api/mockDb"
 
 export const AuthContext = createContext(null)
 

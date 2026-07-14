@@ -1,8 +1,0 @@
-import { useContext } from 'react'
-import { NotificationContext } from '../context/NotificationContext.jsx'
-
-export function useNotifications() {
-  const ctx = useContext(NotificationContext)
-  if (!ctx) throw new Error('useNotifications harus dipakai di dalam <NotificationProvider>')
-  return ctx
-}

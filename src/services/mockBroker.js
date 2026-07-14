@@ -1,4 +1,4 @@
-import { MQ_QUEUE_NAME, MQ_EXCHANGE_NAME } from '../utils/constants'
+import { MQ_QUEUE_NAME, MQ_EXCHANGE_NAME } from "@/utils/constants"
 
 /**
  * mockBroker mensimulasikan perilaku message broker (RabbitMQ-like)

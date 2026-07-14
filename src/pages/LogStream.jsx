@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { mockBroker } from '../services/mockBroker'
-import { activitySimulator } from '../services/activitySimulator'
-import Card from '../components/common/Card.jsx'
-import Button from '../components/common/Button.jsx'
-import LogStreamViewer from '../components/logs/LogStreamViewer.jsx'
+import { mockBroker } from "@/services/mockBroker"
+import { activitySimulator } from "@/services/activitySimulator"
+import Card from "@/shared/components/common/Card.jsx"
+import Button from "@/shared/components/common/Button.jsx"
+import LogStreamViewer from "@/components/logs/LogStreamViewer.jsx"
 
 const MAX_MESSAGES = 200
 

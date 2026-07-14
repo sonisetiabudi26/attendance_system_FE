@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import Badge from '../common/Badge.jsx'
-import { formatTime } from '../../utils/dateUtils'
+import Badge from "@/shared/components/common/Badge.jsx"
+import { formatTime } from "@/utils/dateUtils"
 
 const TYPE_META = {
   CHECK_IN: { label: 'CHECK_IN', tone: 'success' },

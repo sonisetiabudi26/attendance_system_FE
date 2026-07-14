@@ -1,4 +1,4 @@
-import Button from '../common/Button.jsx'
+import Button from "@/shared/components/common/Button.jsx"
 
 
 export default function DateFilter({ filters, onChange, onReset }) {

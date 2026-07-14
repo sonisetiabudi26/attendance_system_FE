@@ -1,5 +1,5 @@
-import Badge from '../common/Badge.jsx'
-import { formatDateTimeShort, formatTime } from '../../utils/dateUtils'
+import Badge from "@/shared/components/common/Badge.jsx"
+import { formatDateTimeShort, formatTime } from "@/utils/dateUtils"
 
 function StatusBadge({ status }) {
   return status === 'ON_TIME' ? (

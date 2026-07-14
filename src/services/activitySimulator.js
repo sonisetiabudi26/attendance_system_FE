@@ -1,6 +1,6 @@
-import { mockBroker } from './mockBroker'
-import { db } from '../api/mockDb'
-import { ROLES } from '../utils/constants'
+import { mockBroker } from "@/services/mockBroker"
+import { db } from "@/shared/api/mockDb"
+import { ROLES } from "@/utils/constants"
 
 let timerId = null
 

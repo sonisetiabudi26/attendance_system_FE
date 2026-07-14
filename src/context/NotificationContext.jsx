@@ -1,7 +1,7 @@
 import { createContext, useCallback, useEffect, useRef, useState } from 'react'
-import { mockBroker } from '../services/mockBroker'
-import { db } from '../api/mockDb'
-import { NOTIFICATION_TYPE, ROLES } from '../utils/constants'
+import { mockBroker } from "@/services/mockBroker"
+import { db } from "@/shared/api/mockDb"
+import { NOTIFICATION_TYPE, ROLES } from "@/utils/constants"
 
 export const NotificationContext = createContext(null)
 

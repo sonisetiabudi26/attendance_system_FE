@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNotifications } from '../../hooks/useNotifications'
+import { useNotifications } from "@/shared/hooks/useNotifications"
 
 function timeAgo(timestamp) {
   const diffSec = Math.max(1, Math.floor((Date.now() - timestamp) / 1000))
