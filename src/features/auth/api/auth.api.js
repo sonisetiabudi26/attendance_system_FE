@@ -10,5 +10,10 @@ export const authApi = {
     },
     logoutData(){
         return api.post("/auth/logout");
-    }
+    },
+    refreshToken(refreshToken) {
+    return api.post("/auth/refresh-token", {
+        refreshToken,
+    });
+}
 }

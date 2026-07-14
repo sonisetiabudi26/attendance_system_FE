@@ -13,7 +13,7 @@ export default function Profile() {
   const employee = useEmployee();
   const geo = useGeolocation()
 
-  const [form, setForm] = useState({ name: employee.fullName, phone: employee.phone})
+  const [form, setForm] = useState({ name: employee.fullName, phone: employee.phone,homeLabel:employee.locations[0]?.locationName})
   const [isSaving, setIsSaving] = useState(false)
   const [successMsg, setSuccessMsg] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
@@ -95,15 +95,15 @@ export default function Profile() {
               <Button type="button" variant="outline" onClick={handleUseCurrentLocation} isLoading={geo.status === 'locating'}>
                 Gunakan Lokasi Saat Ini
               </Button>
-              {pendingCoords && (
+              {/* {pendingCoords && (
                 <span className="font-mono text-xs text-success">
                   Titik baru: {pendingCoords.lat.toFixed(5)}, {pendingCoords.lng.toFixed(5)}
                 </span>
-              )}
+              )} */}
             </div>
-            <p className="mt-2 font-mono text-xs text-muted">
+            {/* <p className="mt-2 font-mono text-xs text-muted">
               Titik saat ini:
-            </p>
+            </p> */}
           </div>
 
           {successMsg && (
