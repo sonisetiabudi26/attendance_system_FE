@@ -32,13 +32,13 @@ export default function Absen() {
     setIsFetching(true)
     setFetchError('')
     attendanceApi
-      .getToday(employee.employeeId)
+      .getToday(employee.employee.employeeId)
       .then(setToday)
       .catch((err) => setFetchError(err.message || 'Gagal memuat status absen hari ini.'))
       .finally(() => setIsFetching(false))
   }
 
-  useEffect(loadToday, [employee.employeeId])
+  useEffect(loadToday, [employee.employee.employeeId])
 
   const mode = today?.checkIn ? 'CHECK_OUT' : 'CHECK_IN'
   const alreadyDone = today?.checkIn && today?.checkOut
@@ -48,13 +48,13 @@ export default function Absen() {
     setIsSubmitting(true)
     try {
       const coords = await geo.locate()
-      // const distanceMeters = getDistanceInMeters(coords, employee.homeLocation)
+      // const distanceMeters = getDistanceInMeters(coords, employee.employee.homeLocation)
       // const withinRadius = distanceMeters <= WFH_RADIUS_METERS
       setLastDistance(distanceMeters)
       setLastWithinRadius(withinRadius)
 
       const payload = {
-        userId: employee.employeeId,
+        userId: employee.employee.employeeId,
         coords,
         // address: user.homeLocation.label,
         // distanceMeters,
@@ -80,7 +80,7 @@ export default function Absen() {
   return (
     <div className="mx-auto max-w-2xl space-y-6">
       <div>
-        <h1 className="font-display text-2xl font-semibold text-ink">Halo, {employee.fullName.split(' ')[0]} 👋</h1>
+        <h1 className="font-display text-2xl font-semibold text-ink">Halo, {employee.employee.fullName.split(' ')[0]} 👋</h1>
         <p className="mt-1 text-sm text-muted">
           Lokasi WFH terdaftar: <span className="font-medium text-ink"></span>
         </p>

@@ -23,12 +23,12 @@ export const STORAGE_KEYS = {
 
 export const ROLES = {
   EMPLOYEE: 'EMPLOYEE',
-  HRD: 'HR',
+  HR: 'HR',
 }
 
 export const ROLE_LABEL = {
-  EMPLOYEE: 'Karyawan',
-  HRD: 'HR',
+  EMPLOYEE: 'EMPLOYEE',
+  HR: 'HR',
 }
 
 export const NOTIFICATION_TYPE = {

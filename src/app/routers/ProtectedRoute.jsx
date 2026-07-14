@@ -15,7 +15,6 @@ export default function ProtectedRoute({ children }) {
     } = useCurrentUser();
 
 
-console.log(user,token);
     if (!token) {
         return <Navigate to="/login" replace />;
     }

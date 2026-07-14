@@ -12,7 +12,7 @@ export const authApi = {
         return api.post("/auth/logout");
     },
     refreshToken(refreshToken) {
-    return api.post("/auth/refresh-token", {
+    return api.post("/auth/refresh", {
         refreshToken,
     });
 }

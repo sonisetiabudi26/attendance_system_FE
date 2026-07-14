@@ -4,6 +4,6 @@ export function useEmployee() {
 
     const { data: user } = useCurrentUser();
 
-    return user?.employee;
+    return user;
 
 }

@@ -13,7 +13,7 @@ export default function Profile() {
   const employee = useEmployee();
   const geo = useGeolocation()
 
-  const [form, setForm] = useState({ name: employee.fullName, phone: employee.phone,homeLabel:employee.locations[0]?.locationName})
+  const [form, setForm] = useState({ name: employee.employee.fullName, phone: employee.employee.phone,homeLabel:employee.employee.locations[0]?.locationName})
   const [isSaving, setIsSaving] = useState(false)
   const [successMsg, setSuccessMsg] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
@@ -70,14 +70,14 @@ export default function Profile() {
             className="flex h-16 w-16 items-center justify-center rounded-full text-xl font-bold text-white"
           
           >
-            {employee.fullName.charAt(0) ?? '?'}
+            {employee.employee.fullName.charAt(0) ?? '?'}
           </div>
           <div>
-            <p className="font-display text-lg font-semibold text-ink">{employee.fullName}</p>
-            <p className="text-sm text-muted">{employee.positionName}</p>
+            <p className="font-display text-lg font-semibold text-ink">{employee.employee.fullName}</p>
+            <p className="text-sm text-muted">{employee.employee.positionName}</p>
             <div className="mt-1.5 flex flex-wrap gap-1.5">
-              <Badge tone="ink">{employee.email}</Badge>
-              <Badge tone={employee.role === 'HRD' ? 'ink' : 'neutral'}>{ROLE_LABEL[employee.role]}</Badge>
+              {/* <Badge tone="ink">{employee.employee.email}</Badge> */}
+              <Badge tone={employee.role === 'HR' ? 'ink' : 'neutral'}>{ROLE_LABEL[employee.role]}</Badge>
             </div>
           </div>
         </div>
