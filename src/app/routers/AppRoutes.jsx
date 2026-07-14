@@ -60,7 +60,7 @@ export default function AppRoutes() {
         <Route
           path="/employees"
           element={
-            <RoleRoute allow={[ROLES.HRD]}>
+            <RoleRoute allow={[ROLES.HR]}>
               <EmployeeList />
             </RoleRoute>
           }
@@ -69,7 +69,7 @@ export default function AppRoutes() {
         <Route
           path="/all-history"
           element={
-            <RoleRoute allow={[ROLES.HRD]}>
+            <RoleRoute allow={[ROLES.HR]}>
               <AllHistory />
             </RoleRoute>
           }
@@ -78,7 +78,7 @@ export default function AppRoutes() {
         <Route
           path="/logs"
           element={
-            <RoleRoute allow={[ROLES.HRD]}>
+            <RoleRoute allow={[ROLES.HR]}>
               <LogStream />
             </RoleRoute>
           }

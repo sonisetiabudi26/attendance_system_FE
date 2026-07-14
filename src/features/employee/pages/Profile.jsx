@@ -7,10 +7,12 @@ import Card from "@/shared/components/common/Card.jsx"
 import Input from "@/shared/components/common/Input.jsx"
 import Button from "@/shared/components/common/Button.jsx"
 import Badge from "@/shared/components/common/Badge.jsx"
+import { useCurrentUser } from '@/features/auth/hooks/useCurrentUser'
 
 export default function Profile() {
   // const { user, updateUser } = useAuth()
   const employee = useEmployee();
+ 
   const geo = useGeolocation()
 
   const [form, setForm] = useState({ name: employee.employee.fullName, phone: employee.employee.phone,homeLabel:employee.employee.locations[0]?.locationName})
@@ -85,26 +87,13 @@ export default function Profile() {
 
       <Card title="Informasi Pribadi">
         <form  className="space-y-4">
-          <Input id="name" label="Nama Lengkap" value={form.name} onChange={handleChange('name')} />
+          <Input id="name" label="Nama Lengkap" value={form.name} readOnly />
           <Input id="phone" label="Nomor Telepon" value={form.phone} onChange={handleChange('phone')} />
-
+          <Input id="password" type='password' label="Password" value={form.password} onChange={handleChange('password')} />
           <div>
             <label className="label" htmlFor="homeLabel">Lokasi WFH Terdaftar</label>
-            <Input id="homeLabel" value={form.homeLabel} onChange={handleChange('homeLabel')} />
-            <div className="mt-2 flex flex-wrap items-center gap-2">
-              <Button type="button" variant="outline" onClick={handleUseCurrentLocation} isLoading={geo.status === 'locating'}>
-                Gunakan Lokasi Saat Ini
-              </Button>
-              {/* {pendingCoords && (
-                <span className="font-mono text-xs text-success">
-                  Titik baru: {pendingCoords.lat.toFixed(5)}, {pendingCoords.lng.toFixed(5)}
-                </span>
-              )} */}
+            <Input id="homeLabel" value={form.homeLabel} readOnly />
             </div>
-            {/* <p className="mt-2 font-mono text-xs text-muted">
-              Titik saat ini:
-            </p> */}
-          </div>
 
           {successMsg && (
             <p className="rounded-lg bg-emerald-50 px-3.5 py-2.5 text-sm font-medium text-success">{successMsg}</p>

@@ -10,7 +10,7 @@ export function useRole() {
 
         isEmployee: user?.role === "EMPLOYEE",
 
-        isHRD: user?.role === "HRD",
+        isHRD: user?.role === "HR",
 
         isAdmin: user?.role === "ADMIN",
 

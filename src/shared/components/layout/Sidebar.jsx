@@ -17,8 +17,9 @@ const HRD_ITEMS = [
 ]
 
 export default function Sidebar({ onNavigate }) {
-  const { isHrd } = useRole()
-  const items = isHrd ? HRD_ITEMS : EMPLOYEE_ITEMS
+  const { isHRD } = useRole();
+  // console.log(isHRD);
+  const items = isHRD ? HRD_ITEMS : EMPLOYEE_ITEMS
 
   return (
     <nav className="flex flex-col gap-1 p-3">

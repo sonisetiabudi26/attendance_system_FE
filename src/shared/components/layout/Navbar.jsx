@@ -7,7 +7,7 @@ import { useLogout } from "@/features/auth/hooks/useLogout";
 export default function Navbar({ onMenuClick }) {
   // const { user, logout } = useAuth()
   const employee = useEmployee();
-  const { isHrd } = useRole()
+  const { isHRD } = useRole()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -42,7 +42,7 @@ export default function Navbar({ onMenuClick }) {
         </button>
         <div className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink text-accent font-display text-sm font-bold">
-            W
+            DX
           </div>
           <span className="font-display text-sm font-semibold tracking-wide text-ink hidden sm:block">
             Attendance System WFH - PT. Dexa Group
@@ -51,7 +51,7 @@ export default function Navbar({ onMenuClick }) {
       </div>
 
       <div className="flex items-center gap-1.5">
-        {isHrd && <NotificationBell />}
+        {isHRD && <NotificationBell />}
         <div className="relative">
         <button
           onClick={() => setMenuOpen((v) => !v)}
