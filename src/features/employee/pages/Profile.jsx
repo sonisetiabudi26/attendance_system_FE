@@ -13,7 +13,7 @@ export default function Profile() {
   const employee = useEmployee();
   const geo = useGeolocation()
 
-  const [form, setForm] = useState({ name: employee.name, phone: employee.phone, homeLabel: employee.homeLocation.label })
+  const [form, setForm] = useState({ name: employee.fullName, phone: employee.phone})
   const [isSaving, setIsSaving] = useState(false)
   const [successMsg, setSuccessMsg] = useState('')
   const [errorMsg, setErrorMsg] = useState('')
@@ -70,11 +70,11 @@ export default function Profile() {
             className="flex h-16 w-16 items-center justify-center rounded-full text-xl font-bold text-white"
           
           >
-            {employee.name.charAt(0)}
+            {employee.fullName.charAt(0) ?? '?'}
           </div>
           <div>
-            <p className="font-display text-lg font-semibold text-ink">{employee.name}</p>
-            <p className="text-sm text-muted">{employee.position}</p>
+            <p className="font-display text-lg font-semibold text-ink">{employee.fullName}</p>
+            <p className="text-sm text-muted">{employee.positionName}</p>
             <div className="mt-1.5 flex flex-wrap gap-1.5">
               <Badge tone="ink">{employee.email}</Badge>
               <Badge tone={employee.role === 'HRD' ? 'ink' : 'neutral'}>{ROLE_LABEL[employee.role]}</Badge>

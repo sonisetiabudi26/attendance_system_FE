@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-// import { useAuth } from "@/shared/hooks/useAuth"
-import { useEmployee } from "@/features/auth/hooks/useEmployee"
+import { useEmployee } from "../../../features/auth/hooks/useEmployee"
+import { useRole } from "../../../features/auth/hooks/useRole"
 import NotificationBell from "@/components/notifications/NotificationBell.jsx"
 
 export default function Navbar({ onMenuClick }) {
   // const { user, logout } = useAuth()
   const employee = useEmployee();
-  // const { isHrd } = useRole()
+  const { isHrd } = useRole()
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -47,7 +47,7 @@ export default function Navbar({ onMenuClick }) {
         >
           <div
             className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white"
-            style={{ backgroundColor: user?.avatarColor || '#14213D' }}
+            style={{ backgroundColor: '#14213D' }}
           >
             {employee?.name?.charAt(0) ?? '?'}
           </div>

@@ -6,7 +6,7 @@ import Input from "@/shared/components/common/Input.jsx"
 import Button from "@/shared/components/common/Button.jsx"
 import { useLogin } from "@/features/auth/hooks/useLogin";
 export default function Login() {
-
+  const { mutate, isPending } = useLogin();
   // const { setAuth } = useAuth();
   // const { setAuth } = AuthProvider();
   const toast = useToast()
@@ -14,7 +14,7 @@ export default function Login() {
   const location = useLocation()
   // const from = location.state?.from?.pathname || '/'
 
-    const queryClient = useQueryClient();
+
   const [form, setForm] = useState({ email: 'dimas@company.com', password: 'password123' })
   const [errors, setErrors] = useState({})
   const [apiError, setApiError] = useState('')
@@ -50,7 +50,7 @@ export default function Login() {
         }, {
             onSuccess: async (response) => {
               setIsLoading(false)
-             
+              
               // console.log(response);
                 navigate("/profile");
                 
