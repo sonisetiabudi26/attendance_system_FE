@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEmployee } from "../../../features/auth/hooks/useEmployee"
 import { useRole } from "../../../features/auth/hooks/useRole"
 import NotificationBell from "@/components/notifications/NotificationBell.jsx"
-
+import { useLogout } from "@/features/auth/hooks/useLogout";
 export default function Navbar({ onMenuClick }) {
   // const { user, logout } = useAuth()
   const employee = useEmployee();
@@ -11,10 +11,22 @@ export default function Navbar({ onMenuClick }) {
   const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
 
-  // const handleLogout = async () => {
-  //   await logout()
-  //   navigate('/login', { replace: true })
-  // }
+   const { mutate: logout } = useLogout();
+
+    function handleLogout() {
+
+        logout(undefined, {
+
+            onSuccess: () => {
+
+                navigate("/login", {
+                    replace: true,
+                });
+
+            }
+
+        });
+      }
 
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-line bg-white/90 px-4 backdrop-blur sm:px-6">
@@ -71,7 +83,7 @@ export default function Navbar({ onMenuClick }) {
                 Profil Saya
               </button>
               <button
-                // onClick={}
+                onClick={handleLogout}
                 className="block w-full border-t border-line px-4 py-2.5 text-left text-sm font-medium text-danger hover:bg-red-50"
               >
                 Keluar

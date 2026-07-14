@@ -38,9 +38,9 @@ export default function AppRoutes() {
         <Route
           path="/login"
           element={
-            <GuestOnly user={user}>
+           
               <Login />
-            </GuestOnly>
+           
           }
         />
       </Route>
@@ -98,10 +98,10 @@ export default function AppRoutes() {
   );
 }
 
-function GuestOnly({ user, children }) {
-  if (user) {
-    return <Navigate to="/absen" replace />;
-  }
+// function GuestOnly({ user, children }) {
+//   if (user) {
+//     return <Navigate to="/login" replace />;
+//   }
 
-  return children;
-}
+//   return children;
+// }
