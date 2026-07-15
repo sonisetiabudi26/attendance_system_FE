@@ -27,41 +27,43 @@ export default function EmployeeTable({ employees, isLoading, onEdit, onDelete, 
         <thead>
           <tr className="border-b border-line text-xs font-semibold uppercase tracking-wide text-muted">
             <th className="py-3 pr-4">Karyawan</th>
+            <th className="py-3 pr-4">Employee No</th>
             <th className="py-3 pr-4">Position</th>
-            <th className="py-3 pr-4">Role</th>
-            <th className="py-3 pr-4">Status</th>
+            <th className="py-3 pr-4">Phone</th>
             <th className="py-3 pr-4 text-right">Aksi</th>
           </tr>
         </thead>
         <tbody>
           {employees.map((emp) => (
-            <tr key={emp.id} className="border-b border-line/70 last:border-0 align-top">
+            <tr key={emp.employeeId} className="border-b border-line/70 last:border-0 align-top">
               <td className="py-3.5 pr-4">
                 <div className="flex items-center gap-3">
                   <div
                     className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
-                    style={{ backgroundColor: emp.avatarColor }}
+                    style={{ backgroundColor: '#000000' }}
                   >
-                    {emp.name.charAt(0)}
+                    {emp.fullName.charAt(0)}
                   </div>
                   <div>
-                    <p className="font-medium text-ink">{emp.name}</p>
+                    <p className="font-medium text-ink">{emp.fullName}</p>
                     <p className="text-xs text-muted">{emp.email}</p>
                    
                   </div>
                 </div>
               </td>
-              <td className="py-3.5 pr-4 text-ink">{emp.position}</td>
-              <td className="py-3.5 pr-4">
-                <Badge tone={emp.role === 'HRD' ? 'ink' : 'neutral'}>{ROLE_LABEL[emp.role]}</Badge>
-              </td>
-              <td className="py-3.5 pr-4">
-                <button onClick={() => onToggleStatus(emp)} disabled={emp.id === currentUserId}>
+              <td className="py-3.5 pr-4 text-ink">{emp.employeeNo}</td>
+              <td className="py-3.5 pr-4 text-ink">{emp.positionName}</td>
+              <td className="py-3.5 pr-4 text-ink">{emp.phone}</td>
+              {/* <td className="py-3.5 pr-4">
+                <Badge tone={emp.role === 'HR' ? 'ink' : 'neutral'}>{ROLE_LABEL[emp.role]}</Badge>
+              </td> */}
+              {/* <td className="py-3.5 pr-4"> */}
+                {/* <button onClick={() => onToggleStatus(emp)} disabled={emp.employeeId === currentUserId}>
                   <Badge tone={emp.status === 'ACTIVE' ? 'success' : 'danger'} dot className="cursor-pointer disabled:cursor-not-allowed">
                     {emp.status === 'ACTIVE' ? 'Aktif' : 'Nonaktif'}
                   </Badge>
-                </button>
-              </td>
+                </button> */}
+              {/* </td> */}
               <td className="py-3.5 pr-4">
                 <div className="flex justify-end gap-2">
                   <button
@@ -72,7 +74,7 @@ export default function EmployeeTable({ employees, isLoading, onEdit, onDelete, 
                   </button>
                   <button
                     onClick={() => onDelete(emp)}
-                    disabled={emp.role === 'HRD'}
+                    disabled={emp.role === 'HR'}
                     className="rounded-lg border border-danger/30 px-2.5 py-1.5 text-xs font-semibold text-danger hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-40"
                   >
                     Hapus

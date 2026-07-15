@@ -34,29 +34,33 @@ export default function Profile() {
   }
 
   const handleSave = async (e) => {
-    // e.preventDefault()
-    // setSuccessMsg('')
-    // setErrorMsg('')
-    // setIsSaving(true)
-    // try {
-    //   const updates = {
-    //     name: form.name,
-    //     phone: form.phone,
-    //     homeLocation: {
-    //       ...user.homeLocation,
-    //       label: form.homeLabel,
-    //       ...(pendingCoords ? { lat: pendingCoords.lat, lng: pendingCoords.lng } : {}),
-    //     },
-    //   }
-    //   const updated = await authApi.updateProfile(user.id, updates)
-    //   updateUser(updated)
-    //   setPendingCoords(null)
-    //   setSuccessMsg('Profil berhasil diperbarui.')
-    // } catch (err) {
-    //   setErrorMsg(err.message || 'Gagal menyimpan perubahan.')
-    // } finally {
-    //   setIsSaving(false)
-    // }
+    e.preventDefault()
+    setSuccessMsg('')
+    setErrorMsg('')
+    setIsSaving(true)
+    try {
+      const updates = {
+       
+        fullName:form.name,
+        email: "soni@mail.com",
+        password: form.password,
+        phone: form.phone,
+        photoUrl: "https://cdn.domain.com/avatar.jpg",
+        positionId: employee.employee.positionId,
+        locationIds: [
+          employee.employee.locations[0]?.id,
+          employee.employee.locations[1]?.id
+        ]
+      }
+      const updated = await authApi.updateProfile(employee.employee.employeeId, updates)
+      updateUser(updated)
+      setPendingCoords(null)
+      setSuccessMsg('Profil berhasil diperbarui.')
+    } catch (err) {
+      setErrorMsg(err.message || 'Gagal menyimpan perubahan.')
+    } finally {
+      setIsSaving(false)
+    }
   }
 
   return (
@@ -78,7 +82,7 @@ export default function Profile() {
             <p className="font-display text-lg font-semibold text-ink">{employee.employee.fullName}</p>
             <p className="text-sm text-muted">{employee.employee.positionName}</p>
             <div className="mt-1.5 flex flex-wrap gap-1.5">
-              {/* <Badge tone="ink">{employee.employee.email}</Badge> */}
+              <Badge tone="ink">{employee.email}</Badge>
               <Badge tone={employee.role === 'HR' ? 'ink' : 'neutral'}>{ROLE_LABEL[employee.role]}</Badge>
             </div>
           </div>
